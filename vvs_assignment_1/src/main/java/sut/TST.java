@@ -86,6 +86,8 @@ public class TST<T> {
     private Node<T> get(Node<T> x, String key, int d) {
         if (x == null) 
         	return null;
+
+        //unreachable through public method get()
         if (key.length() == 0) 
         	throw new IllegalArgumentException("key must have length >= 1");
         char c = key.charAt(d);
