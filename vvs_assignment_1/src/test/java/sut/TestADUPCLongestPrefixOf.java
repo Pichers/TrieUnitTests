@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestsEPCandPPCLongestPrefixOf {
+class TestADUPCLongestPrefixOf {
 
     @Test
     // [1,2,3]
@@ -39,16 +39,6 @@ class TestsEPCandPPCLongestPrefixOf {
 
         assertNull(tst.longestPrefixOf("india"));
     }
-
-//    @Test
-//    // [1,2,4,6,7,9,12,14,7, ... ,9,12,13,15,14,7,8]
-//    void longestPrefixOfExistingWord() {
-//        TST<Integer> tst = new TST<>();
-//        tst.put("hello", 2);
-//        tst.put("w", 3);
-//
-//        assertEquals("hello", tst.longestPrefixOf("hellooo"));
-//    }
 
     @Test
     // [1,2,4,6,7,9,12,13,14,7,9,12,13,15,14,7,9,12,13,15,14,7,8]

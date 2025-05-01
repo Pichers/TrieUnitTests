@@ -18,27 +18,6 @@ class TestTSTKeysWithPrefix {
         assertThrows(IllegalArgumentException.class, () -> tst.keysWithPrefix(null));
     }
 
-//    @Test
-//    void keysWithPrefixEmpty() {
-//        String s1 = "hello", s2 = "world";
-//
-//        TST<Integer> tst = new TST<>();
-//        tst.put(s1, 1);
-//        tst.put(s2, 3);
-//
-//        Set<String> expectedResult = new HashSet<>();
-//        expectedResult.add(s1);
-//        expectedResult.add(s2);
-//
-//        Iterable<String> actualResult = tst.keysWithPrefix("");
-//        Set<String> arSet = new HashSet<>();
-//
-//        for (String s : actualResult) {
-//            arSet.add(s);
-//        }
-//        assertEquals(expectedResult, arSet);
-//    }
-
     @Test
     void keysWithPrefixNormal() {
         String s1 = "hello", s2 = "world", s3 = "helicopter";

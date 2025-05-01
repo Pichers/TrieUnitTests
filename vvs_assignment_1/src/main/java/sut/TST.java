@@ -232,4 +232,59 @@ public class TST<T> {
         	collect(x.right, prefix, i, pattern, queue);
     }
 
+    // Delete a key from the TST
+    public void delete(String key) {
+        if (key == null)
+            throw new IllegalArgumentException("argument to delete() is null");
+        if (key.length() == 0)
+            throw new IllegalArgumentException("key must have length >= 1");
+        if (contains(key)) {
+            root = delete(root, key, 0);
+            n--;
+        }
+    }
+
+    private Node<T> delete(Node<T> x, String key, int d) {
+        if (x == null)
+            return null;
+        char c = key.charAt(d);
+        if      (c < x.c) x.left = delete(x.left, key, d);
+        else if (c > x.c) x.right = delete(x.right, key, d);
+        else if (d < key.length() - 1) x.mid = delete(x.mid, key, d+1);
+        else x.val = null;
+
+        if (x.val != null)
+            return x;
+        if (x.left != null || x.mid != null || x.right != null)
+            return x;
+        return null;
+    }
+
+    // Equals method for comparing two tries
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof TST<?> that))
+            return false;
+        if (this.size() != that.size())
+            return false;
+
+        Set<String> keys1 = new HashSet<>();
+        Set<String> keys2 = new HashSet<>();
+
+        for (String k : this.keys()) keys1.add(k);
+        for (String k : that.keys()) keys2.add(k);
+
+        if (!keys1.equals(keys2))
+            return false;
+
+        for (String key : keys1) {
+            if (!Objects.equals(this.get(key), that.get(key)))
+                return false;
+        }
+
+        return true;
+    }
+
 }
